@@ -1,4 +1,5 @@
 (function(){
+
   'use strict'
   angular
     .module('app')
@@ -6,13 +7,17 @@
     .factory('totalCalService', totalCalService)
     .factory('queryProductService',queryProductService);
 
+
+
   /** @ngInject */
   function productService($resource){
-    return $resource('http://localhost:8080/product/:id', { id: '@_id' }, {
+    return $resource('/product/:id', { id: '@_id' }, {
       update: {
         method: 'PUT' // this method issues a PUT request
       }});
+
   }
+
 
   /** @ngInject */
   function totalCalService (){
@@ -27,9 +32,10 @@
     }
   }
 
+
   /** @ngInject */
   function queryProductService($resource) {
-    return $resource('http://localhost:8080/getProduct/?name=:name',
+    return $resource('/getProduct/?name=:name',
       {
         query: {method: 'GET', params: {name: ''}, isArray: true}
 

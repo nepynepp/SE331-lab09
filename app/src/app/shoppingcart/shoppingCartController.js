@@ -1,9 +1,11 @@
 (function(){
+
   'use strict';
 
   angular
     .module('app')
     .controller('shoppingCartController',ShoppingCartController);
+
 
   /** @ngInject */
   function ShoppingCartController($scope, shoppingCartService, $location, $rootScope,$rootParams) {
@@ -38,5 +40,6 @@
       return total;
     }
   }
+
 
 })();

@@ -34,6 +34,7 @@
 
     <!-- Table -->
     <table class="table table-hover">
+      <div cg-busy="{promise:vm.queryPromise,message:'Wait for me',backdrop:true,minDuration:5000}"></div>
         <tr>
             <th>#</th>
             <th translate>listProduct.name </th>
@@ -44,13 +45,14 @@
             <th translate>listProduct.edit</th>
             <th translate>listProduct.delete</th>
 
-          <tr ng-repeat="product in vm.products">
-            <!-- <td>{{$index+1}}</td>
+        </tr>
+        <tr ng-repeat="product in vm.products">
+            <td>{{$index+1}}</td>
             <td>{{product.name}}</td>
-            <td>{{product.description}}</td>-->
-          <td class="text-right">{{product.netPrice | number}}</td>
-          <td class="text-right">{{product.totalPrice | number}}</td>
-          <td>
+            <td>{{product.description}}</td>
+            <td class="text-right">{{product.netPrice | number}}</td>
+            <td class="text-right">{{product.totalPrice | number}}</td>
+            <td >
                 <div ng-repeat="image in product.images" class="text-center" class="thumbnail">
                     <img ng-src="data:{{image.contentType}};base64,{{image.content}}">
                 </div>
@@ -66,6 +68,7 @@
             <th></th>
             <th></th>
             <th></th>
+
         </tr>
     </table>
 </div>

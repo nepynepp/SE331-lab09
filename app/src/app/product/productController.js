@@ -1,6 +1,6 @@
 (function(){
-  'use strict';
 
+  'use strict';
   angular
     .module('app')
     .controller('addProductController',addProductController)
@@ -35,13 +35,15 @@
 
 
   /** @ngInject */
-  function listProductController($scope, $rootScope,productService,$route,totalCalService,queryProductService) {
+  function listProductController($scope, $rootScope,productService,$route,queryProductService) {
     var vm = this;
     //$http.get("/product/").success(function (data) {
-    var data = productService.query(function () {
-      // $scope.totalNetPrice= totalCalService.getTotalNetPrice(data);
-      vm.products = data;
-    });
+  vm.queryPromise = productService.query(function(data){
+    // $scope.totalNetPrice= totalCalService.getTotalNetPrice(data);
+    vm.products = data;
+  }).$promise;
+
+
 
 
     $scope.$on('$locationChangeStart', function () {
@@ -65,7 +67,9 @@
         vm.products = data;
       });
     }
+
   }
+
 
   /** @ngInject */
   function editProductController($scope, $http, $routeParams, $location, $rootScope,productService) {
@@ -85,6 +89,5 @@
       });
     }
   }
-
 
 })();
