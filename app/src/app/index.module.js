@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('labApp',['ngRoute','ngResource','pascalprecht.translate','flow']);
+    .module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ngRoute', 'ui.bootstrap', 'toastr']);
 
 })();
