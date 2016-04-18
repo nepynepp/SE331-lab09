@@ -10,5 +10,4 @@
       return $delegate.apply(this, arguments);
     };
   })
-
 })();
